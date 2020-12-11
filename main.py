@@ -2,7 +2,6 @@ import torch
 
 from netlist_parser import Netlist
 from solver import PesudoInvSolver, JacobiSolver, ConjugateGradientSolver
-from utils import global_device
 
 
 def testOneSpice(spiceName):
@@ -33,11 +32,11 @@ def testOneSpice(spiceName):
 
 
 if __name__ == '__main__':
-    testOneSpice("ibmpg1")
-    testOneSpice("ibmpg2")
-    testOneSpice("ibmpg4")
-    testOneSpice("ibmpg5")
-    testOneSpice("ibmpg6")
+    testOneSpice("data/ibmpg1")
+    # testOneSpice("data/ibmpg2")
+    # testOneSpice("data/ibmpg4")
+    # testOneSpice("data/ibmpg5")
+    # testOneSpice("data/ibmpg6")
     a = 1
 
 

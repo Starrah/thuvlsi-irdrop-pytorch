@@ -1,0 +1,90 @@
+------------------迭代法实验--------------
+ibmpg1.spice load finish, count: 16428
+JacobiSolver
+9940 9.997617098633782e-07
+6803 9.995599157264223e-07
+time: 2.555934190750122
+RMSE: 0.002629048889502883
+
+ConjugateGradientSolver
+422 9.78202933765715e-07
+355 9.697051837065374e-07
+time: 0.1747756004333496
+RMSE: 4.0487251681042835e-05
+
+ibmpg2.spice load finish, count: 127026
+JacobiSolver
+22194 9.99740109364211e-07
+17533 9.999621397582814e-07
+time: 6.125053882598877
+RMSE: 0.00857791118323803
+
+ConjugateGradientSolver
+1133 9.459491820962285e-07
+813 9.851540880845278e-07
+time: 0.44028258323669434
+RMSE: 0.000261707347817719
+
+ibmpg4.spice load finish, count: 952931
+JacobiSolver
+47015 9.999403118854389e-07
+27776 9.998835821534158e-07
+time: 27.135939359664917
+RMSE: 0.012383716180920601
+
+ConjugateGradientSolver
+1450 9.986880513679353e-07
+17384 9.976548653867212e-07
+time: 9.550678014755249
+RMSE: 0.00020338316971901804
+
+ibmpg5.spice load finish, count: 540321
+JacobiSolver
+50000 1.053224650604534e-06
+43168 9.999754411182948e-07
+time: 24.4325270652771
+RMSE: 0.018484491854906082
+
+ConjugateGradientSolver
+1455 9.988350484491093e-07
+4495 9.917495162881096e-07
+time: 2.167693614959717
+RMSE: 0.0004967748536728323
+
+ibmpg6.spice load finish, count: 834385
+JacobiSolver
+50000 5.232328476267867e-06
+40011 9.99974986370944e-07
+time: 33.200812578201294
+RMSE: 0.024763932451605797
+
+ConjugateGradientSolver
+5179 9.97198412733269e-07
+998 9.993083267545444e-07
+time: 3.017324209213257
+RMSE: 0.00016473507275804877
+----------------------------------
+
+
+
+------------------广义逆实验--------------
+需要手动把main.py 18行的注释取掉
+ibmpg1.spice load finish, count: 16428
+PesudoInvSolver
+time: 24.41110110282898
+RMSE: 0.0002597039274405688
+
+ibmpg2.spice load finish, count: 127026
+PesudoInvSolver
+Traceback (most recent call last):
+  File "main.py", line 37, in <module>
+    testOneSpice("ibmpg2")
+  File "main.py", line 25, in testOneSpice
+    resvdd, resgnd = solver.solveVddGnd(vdd, gnd, n.vddValue)
+  File "solver.py", line 26, in solveVddGnd
+    resvdd = self.solve(vdd[0], vdd[1], (len(vdd[1]), len(vdd[1])), initialCVdd)
+  File "solver.py", line 35, in solve
+    fullA = torch.zeros(sizeA, dtype=torch.float32, device=global_device)
+RuntimeError: CUDA out of memory. Tried to allocate 14.17 GiB (GPU 0; 10.76 GiB total capacity; 7.18 MiB already allocated; 9.62 GiB free; 22.00 MiB reserved in total by PyTorch)
+------------------广义逆实验--------------
+

@@ -1,8 +1,8 @@
 import re
 from typing import Dict, Tuple, List, Union
-import torch
-from scipy import interpolate
+
 import numpy as np
+import torch
 
 from utils import global_device, strToNum, average, diagonalPreconditioned, RMSE, drawHeatmap
 
